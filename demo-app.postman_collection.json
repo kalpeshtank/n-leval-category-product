@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "105cb8a9-8518-4924-b2dd-8ff71c9ee3ec",
+		"name": "demo-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin123",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "kalpesh@yopmail.com",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "userType",
+							"value": "Admin",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}login",
+					"host": [
+						"{{APP_URL}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get category",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{APP_URL}}get-category",
+					"host": [
+						"{{APP_URL}}get-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get product",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{TOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "api-key",
+						"value": "{{API_KEY}}",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{APP_URL}}get-product",
+					"host": [
+						"{{APP_URL}}get-product"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "APP_URL",
+			"value": "http://localhost:8000/api/v1/"
+		},
+		{
+			"key": "API_KEY",
+			"value": "123123"
+		},
+		{
+			"key": "TOKEN",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGU1NDlhMmVhNWIyYTNiNjIwNTk2ODFlODY3NWZjMzhlODNkMWE4ZTdjYjVmOTdkOTY2OGM5ZmI3ZmY2NDBmZDJlOWYzMjQyZTA3NDU4NTciLCJpYXQiOjE2MTY1NzE0NTUuNjIyMzAyLCJuYmYiOjE2MTY1NzE0NTUuNjIyMzA2LCJleHAiOjE2NDgxMDc0NTUuNjE0MTMxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.DY-sLWaTaUP5ZoopsPNB0PCUuIuuRWs-q_1wxpnygtX3pwmhwawzDqxQsmdouC6RFiqisuxpKA4d0tg-vcK4u8rM9L19zwypjpjQWJnHS0-Trq1znaNeT67jNUssCAi2NgFZhx84N493j-6_9YLdiFinVvyKqbufToxWnjwPCEBupMrfBT2tjnmfm6OwtTLkQAD1la9egek17Eg7pufMJna9NB6JJfGzed_T9Xy6POZpJ1niYyydh3cbSgTAexQFBTT76d-aepQVk8j8LKvUIQYIp_2AESLsHmR_Xs051Zetrgy36K8HanxVDaKcwC4BO0vdxdcbhRePgNpgOmu34yNHoL6isWUBkrzqOG9yfh4pmHVMVSgHPPHmHE_7eufaAahHpZYjn424NGWViVkDXKZmf7B4mo4RkU-y1R9GncvaETWzFa6tkxI0VJn0Mg95bekJunsP-D-yjy3LsOitIdeh2EpHSkyx9DCP92Pkg0t-Oc4lUHDbBzS_fvWMER2p5yyiVvzXY8WNzZY-G678FG6cItP5SH1p7MdCloLeZWmhCox8Fo7kIYMO96NAt8r10qeOGlTLStrfZ9kQVGfnoLi4nx9fMrhxe5XwTa7_lEn7cbxwMHVv5C9i5P4dMl7S5RHyU-J53UScyhHedPuGGsWZgG9C_dwSNmdj4Ih2Y1I"
+		}
+	]
+}
